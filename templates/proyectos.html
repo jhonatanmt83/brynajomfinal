@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Lista de equipos{% endblock %}
+{% block js %}
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+   <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class='cont-titu text-center'> Nuestros Proyectos<img class='img-R' src="/static/img/imgtitle.jpg"> </h3>
+                <div id="tabla">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr >
+                                <th class='nosort'><h3>Nro</h3></th>
+                                <th><h3>ENTIDAD</h3></th>
+                                <th><h3>LUGAR</h3></th>
+                                <th><h3>PROYECTO</h3></th>
+                                
+                                <th><h3>FINAL</h3></th>
+                                <th><h3>MONTO</h3></th>
+                                <th class='nosort'><h3>DETALLE</h3></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for proyecto in datos.proyectos %}
+                                <tr>
+                                    <td data-title="Nro">{{forloop.counter}}</td>
+                                    <td data-title="ENTIDAD">{{proyecto.entidad}}</td>
+                                    <td data-title="LUGAR">{{proyecto.lugar}}</td>
+                                    <td data-title="PROYECTO">{{proyecto.proyecto}}</td>
+                                    
+                                    <td data-title="FINAL">{% if proyecto.ejecutandose %}A LA FECHA{% else %}{{proyecto.final}}{% endif %}</td>
+                                    <td data-title="MONTO">${{proyecto.monto_punto}}</td>
+                                    <td data-title="DETALLE">{% if proyecto.comprueba_imagen %}<a class="color-azul" href="/proyectos/{{proyecto.pk}}">Ver</a>{% endif %}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody> 
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

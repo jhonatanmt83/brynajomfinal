@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+{% block active2 %}active{% endblock %}
+{% block sub_titulo %}Servicios{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/static/js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="/static/js/jcarousel.responsive.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/js/html5lightbox.js"></script>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/jcarousel.responsive.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/acordion.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/videobox.css" type="text/css" media="screen" />
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+    <div class='container contenedor-principal'>
+        
+        <!--
+        <div class="row-fluid">
+            <div class="span12">
+                <h4 class='content-titulo text-center'>[ PROYECTOS ]</h4>
+                <div class="row-fluid">
+                    <div class="span6">
+                        <p>Le presentamos los proyectos reaizados por nuestra empresa.</p>
+                    </div>
+                    <div class="span6">
+                        <form class="form-horizontal">
+                            <div class="control-group">
+                                <label class="control-label" for='cliente_seleccion'>Cliente</label>
+                                <div class="controls">
+                                    <select id='cliente_seleccion' class="input-xlarge" >
+                                        <option selected="selected">-Cualquiera-</option>
+                                        <option>SOCIEDAD MINERA AUSTRIA DUVAZ.</option>
+                                        <option>SENATI</option>
+                                        <option>SAMAC SAC</option>
+                                        <option>MUNICIPALIDAD DISTRITAL PUCARA</option>
+                                        <option>MUNICIPALIDAD DISTRITAL LA JOYA</option>
+                                        <option>MUNICIPALIDAD DISTRITAL DE PAUCARBAMBA</option>
+                                        <option>MUNICIPALIDAD DISTRITAL DE PANGOA</option>
+                                        <option>MUNICIPALIDAD DISTRITAL DE CHINCHIHUASI</option>
+                                        <option>MUNICIPALIDAD DISTRITAL DE ACOBAMBILLA</option>
+                                        <option>MUNICIPALIDAD DISTRITAL CHINCHIHUASI</option>
+                                        <option>MUNICIPALIDAD DISTRITAL ANCO</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+
+                                <label class="control-label" for='lugar_seleccion'>Lugar</label>
+                                <div class="controls">
+                                    <select id='lugar_seleccion' class="input-xlarge" >
+                                        <option selected="selected">-Cualquiera-</option>
+                                        <option>ANCHONGA</option>
+                                        <option>AREQUIPA</option>
+                                        <option>CHURCAMPA</option>
+                                        <option>CHURCAMPA - HUANCAVELICA</option>
+                                        <option>FONCODES</option>
+                                        <option>FRANC-OR RESOURCES PERU SAC</option>
+                                        <option>HUACHOCOLPA. HUANCAVELICA</option>
+                                        <option>HUANCAVELICA</option>
+                                        <option>JAEN - CAJAMARCA</option>
+                                        <option>MOROCOCHA JUNIN</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for='buscar_input'>Buscar</label>
+                                <div class="controls">
+                                    <input type="text" class="input-medium search-query" id='buscar_input'>
+                                    <button type="button" class="btn">Buscar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+    </div>
+    <div class='container'>
+        <h3 class='cont-titu text-center'> PROYECTOS DE {{ datos.servicio }} <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+        
+        <div class="row-fluid">
+            <div class="span12">
+                {% for proyecto in datos.proyectos%}
+                    {% if forloop.counter|divisibleby:"2" %}
+                            <div class="span5 offset2">
+                                <div class="proyecto_div text-center">
+                                    <a href="#" class='titulo_proyecto'>{{ proyecto.entidad }}</a>
+                                    {% if proyecto.comprueba_imagen %}
+                                    <img class='img-rounded'src="/media/{{ proyecto.imagen_principal.imagen.url_615x448 }}" />
+                                    {% endif %}
+                                </div>
+                                <a href=""><p class='text-center'>{{ proyecto.proyecto }}</p></a>
+                            </div>
+                            
+                        </div>
+                    {% else %}
+                        <div class="row-fluid">
+                            <div class="span5 ">
+                                <div class="proyecto_div text-center">
+                                    <a href="#" class='titulo_proyecto'>{{ proyecto.entidad }}</a>
+                                    {% if proyecto.comprueba_imagen %}
+                                    <img class='img-rounded'src="/media/{{ proyecto.imagen_principal.imagen.url_615x448 }}" />
+                                    {% endif %}
+                                    
+                                </div>
+                                <a href=""><p class='text-center'>{{ proyecto.proyecto }}</p></a>
+                            </div>
+                            
+                        {% if forloop.last %}
+                            </div>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class='container'>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="pagination">
+                <ul>
+                  {% if datos.proyectos.has_previous %}
+                    <li><a href="?page={{ datos.proyectos.previous_page_number }}">&laquo;</a></li>
+                  {% else %}
+                    <li class="disabled"><a href="#">&laquo;</a></li>
+                  {% endif %}
+
+                  {% for num in datos.proyectos.paginator.page_range %}
+                    {% ifequal num datos.proyectos.number %}
+                      <li class="active"><a href="#">{{ num }}<span class="sr-only"></span></a></li>
+                    {% else %}
+                      <li><a href="?page={{ num }}">{{ num }}</a></li>
+                    {% endifequal %}
+                  {% endfor %}
+
+                  {% if datos.proyectos.has_next %}
+                    <li><a href="?page={{ datos.proyectos.next_page_number }}">&raquo;</a></li>
+                  {% else %}
+                    <li class="disabled"><a href="#">&raquo;</a></li>
+                  {% endif %}
+                <ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+    <script type="text/javascript">
+        $(function() {
+            $( "#accordion" ).accordion();
+            $('.jcarousel').jcarousel({
+                animation: {
+                    duration: 800,
+                    easing:   'linear',
+                    complete: function() {}
+                },
+                wrap: 'both'
+            }).jcarouselAutoscroll({
+                interval: 5000
+            });;
+            $('#myTab a:last').tab('show');
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block active2 %}active{% endblock %}
+{% block sub_titulo %}Servicios{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/static/js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="/static/js/jcarousel.responsive.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/js/html5lightbox.js"></script>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/jcarousel.responsive.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/acordion.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/videobox.css" type="text/css" media="screen" />
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+    <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12 ">
+                <div class="row-fluid">
+                    
+                    <div class="span12">
+                        <div class="tabbable tabs-right">
+                            <ul class="nav nav-tabs menu-tab">
+                                {% for servicio in datos.servicios %}
+                                <li {% if servicio == sele_servicio %}class='active'{% endif %}><a href="#{{ servicio.pk }}" data-toggle="tab">{{ servicio }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            <div class="tab-content">
+                                {% for servicio in datos.servicios %}
+                                <div class="tab-pane {% if servicio == sele_servicio %}active{% endif %}" id="{{ servicio.pk }}">
+                                    <div class="container-fluid">
+                                        <div class="row-fluid">
+                                            
+                                                <img class='img-rounded img-inter-text'src="/media/{{ servicio.imagen.url}}">
+                                            
+                                            
+                                                {% autoescape off %}
+                                                <h3 class='text-center'>{{ servicio}}</h3>
+                                                <br>
+                                                {{ servicio.descripcion }}
+                                                {% endautoescape %}
+
+                                                <h4 class='text-center '><a class="btn btn-primary btn-block" href='/lista/proyectos/{{servicio.pk}}'>Lista de obras</a></h4>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                {% endfor %}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class='text-center cont-titu'> CLIENTES <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                <div class="jcarousel-wrapper">
+                    <div class="jcarousel">
+                        <ul>
+                            {% for cliente in datos.clientes %}
+                            <li><a href="{{cliente.url}}"><img src="/media/{{cliente.imagen.url}}"></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                    <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                    <p class="jcarousel-pagination"></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+    <script type="text/javascript">
+        $(function() {
+            $( "#accordion" ).accordion();
+            $('.jcarousel').jcarousel({
+                animation: {
+                    duration: 800,
+                    easing:   'linear',
+                    complete: function() {}
+                },
+                wrap: 'both'
+            }).jcarouselAutoscroll({
+                interval: 5000
+            });;
+            $('#myTab a:last').tab('show');
+        });
+    </script>
+{% endblock %}

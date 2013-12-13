@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load bootstrap_toolkit %}
+{% block sub_titulo %}Detalle de Noticia{% endblock %}
+{% block js %}
+<script type="text/javascript">
+
+// Google +1
+window.___gcfg = {lang: 'es'};
+(function() { var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true; po.src = 'https://apis.google.com/js/plusone.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s); })();
+
+// Twitter +1 
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+</script>
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_ES/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    <!-- ConteedorPrincipal -->
+    <div class="container contenedor-principal">
+        <div class="row-fluid">
+            <div class="span12">
+                <h4 class='text-center title-details'>{{datos.noticia.titulo}}</h4>
+                {% if datos.noticia.imagen %}
+                <img class='img-rounded'src="/media/{{datos.noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
+                {% endif %}
+                {% autoescape off %}
+                <p class='margin-content'>{{datos.noticia.descripcion}}</p>
+                {% endautoescape %}
+                <g:plusone size="tall"></g:plusone>
+                <div class="fb-like" data-href="http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                <a class='twitter-share-button' data-count='vertical' data-lang='es' href='http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}'>Twittear</a>
+                <hr>
+                <div class="fb-comments" data-href="http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}" data-width="850px" data-num-posts="10"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

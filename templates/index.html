@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Principal{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/static/js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="/static/js/jcarousel.responsive.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/js/easyResponsiveTabs.js"></script>
+    <script type="text/javascript" src="/static/js/html5lightbox.js"></script>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/jcarousel.responsive.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/acordion.css" type="text/css">    
+    <link rel="stylesheet" href="/static/css/videobox.css" type="text/css" media="screen" />
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+    <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class='span6'>
+                    <h3 class="text-center cont-titu"> SERVICIOS <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                    <div id="verticalTab">
+                        <ul class="resp-tabs-list">
+                            {% for servicio in datos.servicios %}
+                            <li {% if servicio == sele_servicio %}class='active'{% endif %}><p class='tab-servicio'>{{ servicio }}</p></li>
+                            {% endfor %}
+                        </ul>
+                        <div class="resp-tabs-container">
+                            {% for servicio in datos.servicios %}
+                            <div class='contenedor-tab'>
+
+                                <div class="img-servicio text-center ">
+                                    <img class='img-rounded' src="/media/{{ servicio.imagen.url}}">
+                                </div>
+
+                                {% autoescape off %}
+                                {{ servicio.descripcion|truncatewords_html:40 }}
+                                {% endautoescape %}
+                                <h5 class='text-right'><a href="/servicios/{{servicio.pk}}">Ver más</a></h5>
+                                
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="span6">
+                    <h3 class="text-center cont-titu"> PROYECTOS RECIENTES <img class='img-R' src="/static/img/imgtitle.jpg"> </h3>
+                    <div id="accordion">
+                        {% for proyecto in datos.proyectos%}
+                        <h3 class='ac-color'>{{ proyecto }}</h3>
+                        <div>
+                            <div class="content-img-project text-center">
+                                <img clas='img-rounded'src="/media/{{proyecto.imagen_principal.imagen.url_510x150}}">
+                            </div>
+                            <h6 class='text-right'><a class='vermas'href="/proyectos/{{proyecto.pk}}" > ver mas</a></h6>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <h4 class="proyect-mas"><a href="/proyectos/">+ Proyectos</a></h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="span4">
+                    <h3 class='text-center cont-titu'> VIDEOS <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                    <div class='thumbnail'>
+                        <a href="{{datos.informacion.video1}}" class="html5lightbox" data-width="480" data-height="320" title="{{datos.informacion.titulovideo1}}"><img class='img-index' src="/media/{{datos.informacion.imagenvideo1.url_360x360}}" alt="brynajom"></a>
+                        <p class='text-center'>{{datos.informacion.titulovideo1}}</p>
+                    </div>
+                </div>
+                <div class="span4">
+                    <h3 class='text-center cont-titu'> UBICANOS <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                    <div class="thumbnail">
+                        {% autoescape off %}
+                        {{ datos_empresa.mapa }}
+                        {% endautoescape  %}
+                    </div>
+                </div>
+                <div class="span4">
+                    <h3 class='text-center cont-titu'> NOTICIAS <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                    {% for noticia in datos.noticias %}
+                     <div class="thumbnail">
+                        <h6 class='text-notice-title text-center'><strong>{{ noticia.titulo }}</strong></h6>
+                        <p class='text-notice'>{{ noticia.descripcion|truncatewords:48 }} <a href="/noticias/detalle/{{ noticia.id }}">Ver más</a></p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class="text-center cont-titu"> CLIENTES <img class='img-L' src="/static/img/imgtitle.jpg"> <a href="/clientes/">Ver todos</a></h3>
+                <div class="jcarousel-wrapper">
+                    <div class="jcarousel">
+                        <ul>
+                            {% for cliente in datos.clientes %}
+                            <li><a href="{{cliente.url}}"><img src="/media/{{cliente.imagen.url}}"></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                    <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+
+                    <p class="jcarousel-pagination"></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+    <script type="text/javascript">
+        $(function() {
+            $( "#accordion" ).accordion();
+            $('.jcarousel').jcarousel({
+                animation: {
+                    duration: 800,
+                    easing:   'linear',
+                    complete: function() {}
+                },
+                wrap: 'both'
+            }).jcarouselAutoscroll({
+                interval: 5000
+            });;
+        });
+        $(document).ready(function () {
+
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+{% endblock %}

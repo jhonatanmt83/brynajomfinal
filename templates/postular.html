@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load bootstrap_toolkit %}
+{% block sub_titulo %}Postular{% endblock %}
+{% block active6 %}active{% endblock %}
+{% block js %}
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+    <div class="container contenedor-principal">
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="row">
+                    <div class="span6 offset1">
+                        <h3 class="text-center cont-titu" >Rellena los siguientes datos<img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                        <div class="control-group">
+                            <div class="controls fondo-cont">
+                                <div class="contenedor-form">
+                                    <img class="cabezera-contact" src="/static/img/logo_brynajom_250x250.png">
+                                    <img class="cabezera1-contact" src="/static/img/maquinaria_pesada.png">
+                                    <form method='post' action='' class='form-horizontal' id="my_form" accept-charset="utf-8" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        {{ formulario|as_bootstrap }}
+                                        <input type='submit' class="btn btn-primary" value='Enviar'/>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span5">
+                        <h3 class="text-center cont-titu titulo-puesto">{{ puesto.titulo }}<img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                        {% autoescape off %}
+                            {{ puesto.imagen }}
+                        {% endautoescape %}
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

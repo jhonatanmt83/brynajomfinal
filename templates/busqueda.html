@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Clientes{% endblock %}
+{% block active3 %}active{% endblock %}
+{% block js %}
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+   <div class='container contenedor-clientes'>
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class='cont-titu text-center'>Resultado de la busqueda<img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                <span>Resultado para "{{query_string}}"</span>
+                <ul>
+                {% for entry_list in found_entries %}
+                    {% for entry in entry_list.lista %}
+                        <li><a href="{{ entry_list.url }}{{ entry.pk }}">{{entry}}</a></li>
+                    {% endfor %}
+                {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

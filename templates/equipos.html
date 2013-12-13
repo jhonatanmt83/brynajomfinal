@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+
+
+{% block sub_titulo %}Equipos{% endblock %}
+{% block active4 %}active{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/static/js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="/static/js/jcarousel.responsive.js"></script>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/jcarousel.responsive.css" type="text/css">
+<style type="text/css">
+{% for grupo in datos.tipo_equipos %}
+{% for categoria in grupo%}
+    .enlace_tipoequipo a.img{{categoria.pk}}{
+        background-image: url(/media/{{categoria.imagen.url}});
+    }
+{% endfor %}
+{% endfor %}
+</style>
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+     <div class='container contenedor-principal'>
+   
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class=' text-center cont-titu'>NUESTROS EQUIPOS <img class='img-R' src="/static/img/imgtitle.jpg"> </h3>
+                {% for grupo in datos.tipo_equipos %}
+                <div class="row-fluid">
+                    {% for categoria in grupo%}
+                    <div class="span4">
+                        <div class='enlace_tipoequipo'>
+                            <a class='img{{categoria.pk}}' href='/equipos/{{categoria.pk}}'>{{ categoria.nombre }}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        <hr>
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class='cont-titu text-center'> CLIENTES <img class='img-R' src="/static/img/imgtitle.jpg"> <a href="/clientes/">Ver todos</a></h3>
+                <div class="jcarousel-wrapper">
+                    <div class="jcarousel">
+                        <ul>
+                            {% for cliente in datos.clientes %}
+                            <li><a href="{{cliente.url}}"><img src="/media/{{cliente.imagen.url}}"></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                    <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                    <p class="jcarousel-pagination"></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

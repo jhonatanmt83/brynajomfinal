@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Noticias{% endblock %}
+{% block js %}
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+   <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12">
+                {% for noticia in datos.noticias %}
+                <div class="notice-title">
+                    <h4 class='text-center title-details'>{{ noticia.titulo }}</h4>
+                </div>
+                <div class="description">
+                    {% if noticia.imagen %}
+                    <img class='img-rounded'src="/media/{{noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
+                    {% endif %}
+                    <p class="text-justify">{{ noticia.descripcion|truncatewords:150 }}</p>
+                    <a href="/noticias/detalle/{{ noticia.id }}">Ver mas</a>
+                </div>
+                <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

@@ -1,0 +1,160 @@
+/*------------------------------ RESPONSIVE DESING ---------------------------- */
+@media (max-width: 1400px) {
+	div.contenedor_principal{
+		margin-top: 70px;
+	}
+}
+@media (max-width: 1200px) {
+	.contenedor-principal{
+		margin-top: 115px !important;
+	}
+	.logo_slider {
+		position: absolute !important;
+		width: 17%;
+		z-index: 10;
+		top: 107px !important;
+		left: 10px !important;
+		max-width: 20%;
+		min-height: 10%;
+		height: 220px !important;
+		min-width: 10% !important;
+		right: 80% !important;
+		left: 75% !important;
+		opacity: 0.95;
+		}
+		.imgservi li a, img {
+		border: 0 none;
+		max-width: 100%;
+		margin-top: 5px;
+		vertical-align: middle;
+	}
+}
+@media (max-width: 979px) {
+	.logo_slider {
+	position: absolute !important;
+	width: 17%;
+	z-index: 10;
+	top: 107px !important;
+	left: 10px !important;
+	max-width: 20%;
+	min-height: 10%;
+	height: 220px !important;
+	min-width: 10% !important;
+	right: 80% !important;
+	left: 75% !important;
+	opacity: 0.95;
+	}
+	.navbar .nav {
+	float: none;
+	}
+  /*.container.navbar-wrapper {
+	margin-bottom: 0;
+	width: auto;
+  }
+  .navbar-inner {
+	border-radius: 0;
+	margin: -450px 0;
+  }
+
+  .carousel .item {
+	height: 500px;
+  }
+  .carousel img {
+	width: auto;
+	height: 500px;
+  }
+
+  .featurette {
+	height: auto;
+	padding: 0;
+  }
+  .featurette-image.pull-left,
+  .featurette-image.pull-right {
+	display: block;
+	float: none;
+	max-width: 40%;
+	margin: 0 auto 20px;
+  }*/
+    .navbar-fixed-top, .navbar-fixed-bottom {
+	    position: fixed;
+	    margin-right: 0px;
+	    margin-left: 0px;
+	}
+
+	.contenedor-principal{
+		margin-top: 70px !important;
+	}
+}
+
+
+@media (max-width: 767px) {
+	.logo_slider {
+		position: absolute !important;
+		width: 20%;
+		z-index: 10;
+		top: 120px !important;
+		left: 10px !important;
+		max-width: 20%;
+		min-height: 10%;
+		height: 200px !important;
+		min-width: 10% !important;
+		right: 80% !important;
+		left: 67% !important;
+		opacity: 0.95;
+	}
+	/*.colorear{
+		min-height: 25px;
+		margin-bottom: 5px;
+	}
+	div.fondo{
+		margin-top: 0px;
+	}
+  .navbar-inner {
+	margin: -450px 0;
+  }
+
+  .carousel {
+	margin-left: -20px;
+	margin-right: -20px;
+  }
+  .carousel .container {
+
+  }
+  .carousel .item {
+	height: 300px;
+  }
+  .carousel img {
+	height: 300px;
+  }
+  .carousel-caption {
+	width: 65%;
+	padding: 0 70px;
+	margin-top: 100px;
+  }
+  .carousel-caption h1 {
+	font-size: 30px;
+  }
+  .carousel-caption .lead,
+  .carousel-caption .btn {
+	font-size: 18px;
+  }
+
+  .marketing .span4 + .span4 {
+	margin-top: 40px;
+  }
+
+  .featurette-heading {
+	font-size: 30px;
+  }
+  .featurette .lead {
+	font-size: 18px;
+	line-height: 1.5;
+  }
+  #footer {
+	  margin-left: -20px;
+	  margin-right: -20px;
+	  padding-left: 20px;
+	  padding-right: 20px;
+	}*/
+
+}

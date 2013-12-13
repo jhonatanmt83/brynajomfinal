@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Empresa{% endblock %}
+{% block active1 %}active{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+    <script type="text/javascript" src="/static/js/jquery.jcarousel.min.js"></script>
+    <script type="text/javascript" src="/static/js/jcarousel.responsive.js"></script>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/acordion.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/jcarousel.responsive.css" type="text/css">
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+    <div class='container contenedor-principal'>
+        
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="span3">
+                        <div class="accordion" id="accordion2">
+                            <div class="accordion-group">
+                                <div class="accordion-heading cab-acord">
+                                    <a class="accordion-toggle text-center" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                                    MISIÓN
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="accordion-body collapse">
+                                    <div class="accordion-inner text-justify">
+                                        {% autoescape off %}
+                                        {{ datos_empresa.mision }}
+                                        {% endautoescape  %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-group">
+                                <div class="accordion-heading cab-acord">
+                                        <a class="accordion-toggle text-center" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                                        VISIÓN
+                                        </a>
+                                </div>
+                                <div id="collapseTwo" class="accordion-body collapse">
+                                    <div class="accordion-inner text-justify">
+                                        {% autoescape off %}
+                                        {{ datos_empresa.vision }}
+                                        {% endautoescape  %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-group">
+                                <div class="accordion-heading cab-acord">
+                                        <a class="accordion-toggle text-center" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                                        OBJETIVOS
+                                        </a>
+                                </div>
+                                <div id="collapseThree" class="accordion-body collapse">
+                                    <div class="accordion-inner text-justify">
+                                        {% autoescape off %}
+                                        {{ datos_empresa.objetivos }}
+                                        {% endautoescape  %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-group">
+                                <div class="accordion-heading cab-acord">
+                                        <a class="accordion-toggle text-center" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+                                        VALORES
+                                        </a>
+                                </div>
+                                <div id="collapseFour" class="accordion-body collapse">
+                                    <div class="accordion-inner text-justify">
+                                        {% autoescape off %}
+                                        {{ datos_empresa.valores }}
+                                        {% endautoescape  %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-group active">
+                                <div class="accordion-heading cab-acord">
+                                        <a class="accordion-toggle text-center" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+                                        MAPA
+                                        </a>
+                                </div>
+                                <div id="collapseFive" class="accordion-body collapse in ">
+                                    <div class="accordion-inner text-justify">
+                                        {% autoescape off %}
+                                        {{ datos_empresa.mapa }}
+                                        {% endautoescape  %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span9">
+                        <div class="tabbable tabs-right">
+                            <ul class="nav nav-tabs menu-tab">
+                                    <li class="active"><a href="#quienessomos" data-toggle="tab">QUIÉNES SOMOS</a></li>
+                                    <li><a href="#gestionempresarial" data-toggle="tab">GESTIÓN EMPRESARIAL</a></li>
+                                    <li><a href="#organigrama" data-toggle="tab">ORGANIGRAMA</a></li>
+                                    <li><a href="#planestrategico" data-toggle="tab">PLAN ESTRATEGICO</a></li>
+                                    <li><a href="#politicaseguridad" data-toggle="tab">POLÍTICAS DE SEGURIDAD</a></li>
+                                    <li><a href="#politicaambientales" data-toggle="tab">POLÍTICAS AMBIENTALES</a></li>
+                                    <li><a href="#certificadps" data-toggle="tab">CERTIFICADOS</a></li>
+                            </ul>
+         
+                            <div class="tab-content text-justify">
+                                <div class="tab-pane active" id="quienessomos">
+                                    <h3 class="text-center titulo3">Quiénes Somos</h3>
+                                        {% autoescape off %}
+                                        {{ datos_empresa.quienes_somos }}
+                                        {% endautoescape  %}
+                                </div>
+
+                                <div class="tab-pane" id="gestionempresarial">
+                                    <h3 class="text-center titulo3 ">Organización</h3>
+                                        {% autoescape off %}
+                                        {{ datos_empresa.gestion_empresarial }}
+                                        {% endautoescape  %}
+                                </div>
+
+                                <div class="tab-pane" id="organigrama">
+                                    <h3 class="text-center titulo3">ORGANIGRAMA</h3>
+                                        {% autoescape off %}
+                                        {{ datos_empresa.organigrama }}
+                                        {% endautoescape  %}
+                                </div>
+
+                                <div class="tab-pane" id="planestrategico">
+                                    <h3 class="text-center titulo3">PLANEAMIENTO ESTRATÉGICO</h3>
+                                        {% autoescape off %}
+                                        {{ datos_empresa.plan_estrategico }}
+                                        {% endautoescape  %}
+                                </div>
+
+                                <div class="tab-pane" id="politicaseguridad">
+                                    <h3 class="text-center titulo3">POLÍTICAS DE SEGURIDAD</h3>
+                                        {% autoescape off %}
+                                        {{ datos_empresa.politicas_seguridad }}
+                                        {% endautoescape  %}
+                                </div>
+
+                                <div class="tab-pane" id="politicaambientales">
+                                    <h3 class="text-center titulo3">POLÍTICAS AMBIENTALES</h3>
+                                        {% autoescape off %}
+                                        {{ datos_empresa.politicas_ambientales }}
+                                        {% endautoescape  %}
+                                </div>
+
+                                <div class="tab-pane" id="certificadps">
+                                    <h3 class="text-center titulo3">CERTIFICADOS</h3>
+                                        {% autoescape off %}
+                                        {{ datos_empresa.certificados }}
+                                        {% endautoescape  %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class='container'>
+        
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class='cont-titu text-center'> CLIENTES<img class='img-R' src="/static/img/imgtitle.jpg">  <a href="/clientes/">Ver todos</a></h3>
+                <div class="jcarousel-wrapper">
+                    <div class="jcarousel">
+                        <ul>
+                            {% for cliente in datos.clientes %}
+                            <li><a href="{{cliente.url}}"><img src="/media/{{cliente.imagen.url}}"></a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                    <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+                    <p class="jcarousel-pagination"></p>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+    <script type="text/javascript">
+        $(function() {
+            $( "#accordion" ).accordion();
+            $('.jcarousel').jcarousel({
+                animation: {
+                    duration: 800,
+                    easing:   'linear',
+                    complete: function() {}
+                },
+                wrap: 'both'
+            }).jcarouselAutoscroll({
+                interval: 5000
+            });;
+            $('#myTab a:last').tab('show');
+        });
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true,   // 100% fit in a container
+                closed: 'accordion', // Start closed if in accordion view
+                activate: function(event) { // Callback function if tab is switched
+                    var $tab = $(this);
+                    var $info = $('#tabInfo');
+                    var $name = $('span', $info);
+
+                    $name.text($tab.text());
+
+                    $info.show();
+                }
+            });
+            $('#verticalTab').easyResponsiveTabs({
+                type: 'vertical',
+                width: 'auto',
+                fit: true
+            });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Oferta Laboral{% endblock %}
+{% block active6 %}active{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/static/js/html5lightbox.js"></script>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/videobox.css" type="text/css" media="screen" />
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+    <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    
+                    <div class="span9">
+                        {% for grupo in datos.lista_puestos %}
+                        <div class="row-fluid">
+                            {% for puesto in grupo %}
+                            <div class="span4">
+                                <div class="content-labor">
+                                    <h5 class='content-titulo text-center'>{{ puesto.titulo }}</h5>
+                                    <p>{% autoescape off %}{{puesto.descripcion|truncatewords_html:30}}{% endautoescape%}</p>
+                                    <p>Desde: {{ puesto.fecha_inicio }}<br>Hasta: {{ puesto.fecha_final }}</p>
+                                    {% if puesto.vencido %}<span class='text-error'><strong>* Vencido</span></strong>{% endif %}
+                                    <h4 class='text-center'><a role="button" href="/postular/{{ puesto.pk }}" data-toggle="modal"><button class='btn btn-danger' {% if puesto.vencido %}disabled="disabled"{% endif %}>POSTULAR</button></a></h4>
+                                </div>
+                            </div>
+                            {% empty %}
+                                <br>
+                                <h4 class='text-error text-center'>No se encontraron vacantes</h4>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="span3">
+                        <h3 class=' text-center cont-titu'>SERVICIOS <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                        <ul class="servicios">
+                            {% for servicio in datos.servicios %}
+                            <li><a href="/servicios/{{ servicio.pk }}">{{ servicio }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        
+                        <div class="informacion">
+                                <h5 class='title-contac text-center'>Email</h5>
+                                <p class='text-center descrip-contac'>{{ datos.informacion.email }}</p>
+                                <h5 class='text-center title-contac'>Telefonos</h5>
+                                <p class='text-center descrip-contac'>{% autoescape off %}{{ datos.informacion.telefono }}{% endautoescape %}</p>
+                                <h5 class='text-center title-contac'>Direccion</h5>
+                                <p class='text-center descrip-contac'>{% autoescape off %}{{ datos.informacion.direccion }}{% endautoescape %}</p>
+                                <br>
+                        
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

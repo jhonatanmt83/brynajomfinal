@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>{% block titulo %}BRYNAJOM - {% block sub_titulo %}{% endblock %}{% endblock %}</title>
+    <!-- tags meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="keywords" content="contratista, empresa, peru, mineria, construcción, huancayo, brynajom, relación, Constructora brynajom - Constructoras, Contratistas Generales, Servicios de Construccion, Principales Constructoras, construcción, Contratistas, Mineros, Constructoras Peruanas, Construccion de Carreteras, constructora brynajom, Hospitales, Constructoras Peruanas, Principales Constructoras Peruanas, Constructoras Nacionales, Constructoras de Capital Nacional, Constructoras Nacionales, Constructoras mas importantes, Constructoras Peruanas  mas antiguas, Constructoras mas anti, constructoras huancainas, constructoras de trochas, mineria superficial, mineria subterrania, empresas saniamiento,   " />
+    <meta name="Description" content="Empresa peruana – contratistas generales -  ejecutores de proyectos de construcción en las áreas de minería, infraestructura vial, edificaciones públicas y privadas, edificaciones multifamiliares, saneamiento, infraestructura de riego, aeropuertos, etc." />
+    <!-- /end tagsmeta -->
+    <!-- css -->
+    <link rel="shortcut icon" type="image/x-icon" href="/static/img/logo_ico.png" />
+    <link rel="stylesheet" href="/static/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/bootstrap-responsive.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/styles_responsive.css" type="text/css">
+    {% block css %}{% endblock %}
+    <!-- /end css -->
+    <!-- js -->
+    <script type="text/javascript" src="/static/js/jquery-1.9.1.js"></script>
+    {% block js %}{% endblock %}
+    <!-- /end js -->
+    <!--[if lt IE 9]>
+        <script src="/static/js/modernizr.custom.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+    <![endif]-->
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% block firstnavbar %}
+    <!-- FirtNavbar -->
+    <div class="container">
+        <div class="navbar navbar-fixed-top" >
+            <div class="navbar-inner"> 
+                <div class="container">
+                    <a href="/" class="brand"><img src="/static/img/logo_brynajom_50x50.png" width='40' height='40'>BRYNAJOM S.R.L.</a>
+                    <div class="nav-collapse">
+                        <ul class="nav img-social">
+                            <li class='grises'><a href="{{ datos.informacion.facebook }}"  alt='facebook' target='_blank'><img src="/static/img/face.png" width='30' height='30' ></a></li>
+                            <li class='grises'><a href="{{ datos.informacion.googleplus }}" target='_blank'><img src="/static/img/google.png" width='30' height='30'></a></li>
+                            <li class='grises'><a href="{{ datos.informacion.twitter }}" target='_blank'><img src="/static/img/twitter.png" width='30' height='30'></a></li>
+                            <li class='grises'><a href="mailto:{{ datos.informacion.email }}" target='_blank'><img title='Correo Corporativo'src="/static/img/email.png" width='30' height='30'></a></li>
+                            <form class="navbar-search pull-right" action='/busqueda/' method='get'>
+                                <span class="input_icon"></span>
+                                <input type="text" class="search-query" placeholder='Buscar' name='q'>
+                            </form>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End FirtNavbar -->
+    {% endblock %}
+    {% block slider %}
+    <!-- Slider -->
+    <div class="row-fluid">
+            <div class="slider">
+                <img src='/static/img/logo_brynajom_250x250.png' class='logo_slider'/>
+                <div id="myCarousel" class="carousel slide carousel-fade">
+                    <div class="carousel-inner">
+                        {% for slider in datos.sliders%}
+                        <div class="item{% if forloop.counter == 1 %} active{% endif %}">
+                            <img src="/media/{{slider.imagen.url}}" alt="{{slider.descripcion}}">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div>
+            </div>
+    </div>
+    <!-- End Slider -->
+    {% endblock %}
+    {% block navmenu %}
+    <!-- NavbarMenu -->
+    <div class='container'>
+        <div class="navbar-wrapper">
+            <div class="container">
+                <div class="navbar navbar-inverse">
+                    <div class="navbar-inner color_degradado2">
+                        <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#datanav">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="brand active infobrynajom" href="/"><i class="icon-home icon-white"></i > BRYNAJOM</a>
+                        <div class="nav-collapse collapse" id='datanav'>
+                            <ul class="nav">
+                                <li class='{% block active1 %}{% endblock %}'><a href="/empresa/">Empresa</a></li>
+                                <li class='{% block active2 %}{% endblock %}'><a href="/servicios/1/">Servicios</a></li>
+                                <li class='{% block active3 %}{% endblock %}'><a href="/clientes/">Nuestros Clientes </a></li>
+                                <li class='{% block active4 %}{% endblock %}'><a href="/equipos/">Nuestros Equipos</a></li>
+                                <li class='{% block active5 %}{% endblock %}'><a href="/contactenos/">Contáctenos</a></li>
+                                <li class='{% block active6 %}{% endblock %}'><a href="/oferta/laboral/">OFERTAS LABORALES</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End NavbarMenu -->
+    {% endblock %}
+    {% block contenedor %}
+    <!-- ConteedorPrincipal -->
+    <!-- End ContenedorPrincipal -->
+    {% endblock %}
+    {% block footer %}
+    <!-- Footer -->
+    <div id="footer" >
+        <div class='container'>
+            <div class="row-fluid">
+                <div class="span12 text-center">
+                    
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="span2 footer">
+                                <img src="/static/img/footer/maquinaria_pesada.png">
+                            </div>
+                            <div class="span2 footer">
+                                <img src="/static/img/footer/equipo_perforacion.png">
+                            </div>
+                            <div class="span2 footer">
+                                <img src="/static/img/footer/vehiculos_pesados.png">
+                            </div>
+                            <div class="span2 footer">
+                                <img src="/static/img/footer/retro.png">
+                            </div>
+                             <div class="span2 footer">
+                                <img src="/static/img/footer/equipo_perforacion.png">
+                            </div>
+                            <div class="span2 footer">
+                                <img src="/static/img/footer/vehiculos_pesados.png">
+                            </div>
+                        </div>
+
+                    </div>
+                    <p>Copyright 2013. Brynajom S.R.L. All rights reserved.<br>Powered by TeamLosung.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Footer -->
+    {% endblock %}
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/js/js_end.js"></script>
+    {% block js_end %}{% endblock %}
+</body>
+</html>

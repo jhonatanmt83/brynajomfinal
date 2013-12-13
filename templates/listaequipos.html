@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Lista de equipos{% endblock %}
+{% block active4 %}active{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="/static/js/html5lightbox.js"></script>
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="/static/css/videobox.css" type="text/css" media="screen" />
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+   <div class='container contenedor-clientes'>
+        <div class="row-fluid">
+            <div class="span12">
+                <h3 class='cont-titu text-center'> {{ datos.tipo }} <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                <div id="tabla">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th><h3>Nro</h3></th>
+                                <th><h3>DESCRIPCIÓN</h3></th>
+                                <th><h3>MODELO</h3></th>
+                                <th><h3>MARCA</h3></th>
+                                <th><h3>Nro SERIE</h3></th>
+                                <th><h3>IPOTENCIA kW/hp</h3></th>
+                                <th><h3>ANO FAB.</h3></th>
+                                <th><h3>PROPIEDAD</h3></th>
+                                <th><h3>CAP.</h3></th>
+                                <th><h3>IMAGEN</h3></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for equipo in datos.equipos %}
+                            <tr>
+                                <td data-title="Nro">{{forloop.counter}}</td>
+                                {% autoescape off %}
+                                <td data-title="DESCRIPCION">{{equipo.descripcion}}</td>
+                                {% endautoescape %}
+                                <td data-title="MODELO">{{equipo.modelo_equipo}}</td>
+                                <td data-title="MARCA">{{equipo.marca_equipo}}</td>
+                                <td data-title="SERIE">{{equipo.serie_equipo}}</td>
+                                <td data-title="POTEN.kW/hp">{{equipo.potencia}}</td>
+                                <td data-title="ANO FAB.">{{equipo.anio}}</td>
+                                <td data-title="PROPIEDAD">{{equipo.propiedad}}</td>
+                                <td data-title="CAP.">{{equipo.capacidad}}</td>
+                                <td data-title="IMAGEN">
+                                    <div class="imageRow">
+                                        <div class="">
+                                            {% if equipo.imagen %}
+                                            <a href="/media/{{equipo.imagen.url_840x565}}" rel="lightbox" class="html5lightbox" data-width="480" data-height="320"><img class="img-rounded" src="/media/{{equipo.imagen.url_130x130}}" alt="" /></a>
+                                            {% else %}
+                                            <img class="img-rounded" src="/static/img/no_imagen.jpg" alt="" />
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody> 
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

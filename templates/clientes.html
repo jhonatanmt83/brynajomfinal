@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Clientes{% endblock %}
+{% block active3 %}active{% endblock %}
+{% block js %}
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+   <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <h3 class="text-center cont-titu">NUESTROS CLIENTES <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                        {% for grupo in datos.clientes %}
+                        <div class="row-fluid clien">
+                            {% for cliente in grupo %}
+                            <div class="span4"><br>
+                                <div class="rec-clien">
+                                    <div class='rota_imagen text-center ' >
+                                        <a href="{{ cliente.url }}" target="_blank"><img class='clientes_imagen Mi 'src="/media/{{cliente.imagen.url}}"/>
+                                        </a>
+                                         <h5 class="text-center nombre-clien">{{ cliente.nombre|title }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <!--<div class="span3">
+                        <h3 class='text-center cont-titu'> SERVICIOS <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
+                        <ul class="servicios">
+                            {% for servicio in datos.servicios %}
+                            <li><a href="/servicios/{{ servicio.pk }}">{{ servicio }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        <div class="informacion">
+                            <h5 class='title-contac text-center'>Email</h5>
+                            <p class='text-center descrip-contac'>{{ datos.informacion.email }}</p>
+                            <h5 class='text-center title-contac'>Telefonos</h5>
+                            <p class='text-center descrip-contac'>{% autoescape off %}{{ datos.informacion.telefono }}{% endautoescape %}</p>
+                            <h5 class='text-center title-contac'>Direccion</h5>
+                            <p class='text-center descrip-contac'>{% autoescape off %}{{ datos.informacion.direccion }}{% endautoescape %}</p>
+                            <br>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}
