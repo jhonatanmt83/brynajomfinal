@@ -31,7 +31,7 @@ window.___gcfg = {lang: 'es'};
             <div class="span12">
                 <h4 class='text-center title-details'>{{datos.noticia.titulo}}</h4>
                 {% if datos.noticia.imagen %}
-                <img class='img-rounded'src="/media/{{datos.noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
+                <img class='img-rounded'src="{{datos.noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
                 {% endif %}
                 {% autoescape off %}
                 <p class='margin-content'>{{datos.noticia.descripcion}}</p>

@@ -31,7 +31,7 @@
                             <div class='contenedor-tab'>
 
                                 <div class="img-servicio text-center ">
-                                    <img class='img-rounded' src="/media/{{ servicio.imagen.url}}">
+                                    <img class='img-rounded' src="{{ servicio.imagen.url}}">
                                 </div>
 
                                 {% autoescape off %}
@@ -51,7 +51,7 @@
                         <h3 class='ac-color'>{{ proyecto }}</h3>
                         <div>
                             <div class="content-img-project text-center">
-                                <img clas='img-rounded'src="/media/{{proyecto.imagen_principal.imagen.url_510x150}}">
+                                <img clas='img-rounded'src="{{proyecto.imagen_principal.imagen.url_510x150}}">
                             </div>
                             <h6 class='text-right'><a class='vermas'href="/proyectos/{{proyecto.pk}}" > ver mas</a></h6>
                         </div>
@@ -70,7 +70,7 @@
                 <div class="span4">
                     <h3 class='text-center cont-titu'> VIDEOS <img class='img-R' src="/static/img/imgtitle.jpg"></h3>
                     <div class='thumbnail'>
-                        <a href="{{datos.informacion.video1}}" class="html5lightbox" data-width="480" data-height="320" title="{{datos.informacion.titulovideo1}}"><img class='img-index' src="/media/{{datos.informacion.imagenvideo1.url_360x360}}" alt="brynajom"></a>
+                        <a href="{{datos.informacion.video1}}" class="html5lightbox" data-width="480" data-height="320" title="{{datos.informacion.titulovideo1}}"><img class='img-index' src="{{datos.informacion.imagenvideo1.url_360x360}}" alt="brynajom"></a>
                         <p class='text-center'>{{datos.informacion.titulovideo1}}</p>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div class="jcarousel">
                         <ul>
                             {% for cliente in datos.clientes %}
-                            <li><a href="{{cliente.url}}"><img src="/media/{{cliente.imagen.url}}"></a></li>
+                            <li><a href="{{cliente.url}}"><img src="{{cliente.imagen.url}}"></a></li>
                             {% endfor %}
                         </ul>
                     </div>

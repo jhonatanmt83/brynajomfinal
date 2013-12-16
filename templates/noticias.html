@@ -16,7 +16,7 @@
                 </div>
                 <div class="description">
                     {% if noticia.imagen %}
-                    <img class='img-rounded'src="/media/{{noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
+                    <img class='img-rounded'src="{{noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
                     {% endif %}
                     <p class="text-justify">{{ noticia.descripcion|truncatewords:150 }}</p>
                     <a href="/noticias/detalle/{{ noticia.id }}">Ver mas</a>
