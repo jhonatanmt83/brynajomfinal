@@ -33,7 +33,7 @@
                                     <div class="container-fluid">
                                         <div class="row-fluid">
                                             
-                                                <img class='img-rounded img-inter-text'src="/media/{{ servicio.imagen.url}}">
+                                                <img class='img-rounded img-inter-text'src="{{ servicio.imagen.url}}">
                                             
                                             
                                                 {% autoescape off %}
@@ -66,7 +66,7 @@
                     <div class="jcarousel">
                         <ul>
                             {% for cliente in datos.clientes %}
-                            <li><a href="{{cliente.url}}"><img src="/media/{{cliente.imagen.url}}"></a></li>
+                            <li><a href="{{cliente.url}}"><img src="{{cliente.imagen.url}}"></a></li>
                             {% endfor %}
                         </ul>
                     </div>

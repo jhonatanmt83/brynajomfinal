@@ -90,7 +90,7 @@
                                 <div class="proyecto_div text-center">
                                     <a href="#" class='titulo_proyecto'>{{ proyecto.entidad }}</a>
                                     {% if proyecto.comprueba_imagen %}
-                                    <img class='img-rounded'src="/media/{{ proyecto.imagen_principal.imagen.url_615x448 }}" />
+                                    <img class='img-rounded'src="{{ proyecto.imagen_principal.imagen.url_615x448 }}" />
                                     {% endif %}
                                 </div>
                                 <a href=""><p class='text-center'>{{ proyecto.proyecto }}</p></a>
@@ -103,7 +103,7 @@
                                 <div class="proyecto_div text-center">
                                     <a href="#" class='titulo_proyecto'>{{ proyecto.entidad }}</a>
                                     {% if proyecto.comprueba_imagen %}
-                                    <img class='img-rounded'src="/media/{{ proyecto.imagen_principal.imagen.url_615x448 }}" />
+                                    <img class='img-rounded'src="{{ proyecto.imagen_principal.imagen.url_615x448 }}" />
                                     {% endif %}
                                     
                                 </div>

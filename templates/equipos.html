@@ -14,7 +14,7 @@
 {% for grupo in datos.tipo_equipos %}
 {% for categoria in grupo%}
     .enlace_tipoequipo a.img{{categoria.pk}}{
-        background-image: url(/media/{{categoria.imagen.url}});
+        background-image: url({{categoria.imagen.url}});
     }
 {% endfor %}
 {% endfor %}
@@ -51,7 +51,7 @@
                     <div class="jcarousel">
                         <ul>
                             {% for cliente in datos.clientes %}
-                            <li><a href="{{cliente.url}}"><img src="/media/{{cliente.imagen.url}}"></a></li>
+                            <li><a href="{{cliente.url}}"><img src="{{cliente.imagen.url}}"></a></li>
                             {% endfor %}
                         </ul>
                     </div>

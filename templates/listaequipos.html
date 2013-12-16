@@ -48,7 +48,7 @@
                                     <div class="imageRow">
                                         <div class="">
                                             {% if equipo.imagen %}
-                                            <a href="/media/{{equipo.imagen.url_840x565}}" rel="lightbox" class="html5lightbox" data-width="480" data-height="320"><img class="img-rounded" src="/media/{{equipo.imagen.url_130x130}}" alt="" /></a>
+                                            <a href="{{equipo.imagen.url_840x565}}" rel="lightbox" class="html5lightbox" data-width="480" data-height="320"><img class="img-rounded" src="{{equipo.imagen.url_130x130}}" alt="" /></a>
                                             {% else %}
                                             <img class="img-rounded" src="/static/img/no_imagen.jpg" alt="" />
                                             {% endif %}

@@ -62,7 +62,7 @@
                     <div class="carousel-inner">
                         {% for slider in datos.sliders%}
                         <div class="item{% if forloop.counter == 1 %} active{% endif %}">
-                            <img src="/media/{{slider.imagen.url}}" alt="{{slider.descripcion}}">
+                            <img src="{{slider.imagen.url}}" alt="{{slider.descripcion}}">
                         </div>
                         {% endfor %}
                     </div>
