@@ -5,7 +5,7 @@ PROJECT_PATH = path.abspath(
     path.join(path.dirname(path.realpath(__file__)), '..'))
 # Django settings for brynajom project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -19,16 +19,16 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'brynajom',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'root',
-        'PASSWORD': 'toor',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'USER': 'brynajom_user',
+        'PASSWORD': 'japteam2013',
+        'HOST': '75.126.113.164',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '3306',                      # Set to empty string for default.
     }
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['www.bryanjom.com.pe','brynajom.com.pe']
+ALLOWED_HOSTS = ['www.brynajom.com.pe']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -60,24 +60,24 @@ MEDIA_ROOT = path.join(PROJECT_PATH, 'media')
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = 'localhost:8000/media/'
+MEDIA_URL = 'http://www.brynajom.com.pe/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = '/home/polmatt/webapps/static'
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://www.brynajom.com.pe/static/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    path.join(PROJECT_PATH, 'static'),
+    '/home/polmatt/webapps/static',
 )
 
 # List of finder classes that know how to find static files in
@@ -95,7 +95,7 @@ SECRET_KEY = '55s7e5xf!zv7)app5zi0=ai)y^=gd!ocj*@p(p#v0!*!@i^7cf'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -171,4 +171,6 @@ LOGGING = {
 }
 
 CKEDITOR_UPLOAD_PATH = path.join(MEDIA_ROOT, 'uploads')
-CKEDITOR_UPLOAD_PREFIX = "http://localhost:8000/media/uploads/"
+CKEDITOR_UPLOAD_PREFIX = "http://www.brynajom.com.pe/media/uploads/"
+PREPEND_WWW = True
+
