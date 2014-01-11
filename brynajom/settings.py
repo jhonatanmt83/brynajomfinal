@@ -174,3 +174,4 @@ CKEDITOR_UPLOAD_PATH = path.join(MEDIA_ROOT, 'uploads')
 CKEDITOR_UPLOAD_PREFIX = "http://www.brynajom.com.pe/media/uploads/"
 PREPEND_WWW = True
 
+handler404 = 'web.views.error404'

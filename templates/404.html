@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Pagina no encontreada{% endblock %}
+{% block js %}
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+   <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12 text-center">
+		<h4 class='text-error'>¡Algo ha salido mal!</h4>
+		<p>Parece que ha habido un error con la pagina que estabas buscando</p>
+		<h2>Pagina no encontrada</h2>
+		<h1 class='text-error'>404</h1>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+{% endblock %}

@@ -52,3 +52,5 @@ urlpatterns = patterns('',
 urlpatterns += patterns('',
     (r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
 )
+
+handler404 = 'web.views.error404'

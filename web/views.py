@@ -216,6 +216,11 @@ def detalleproyecto(request, codigo):
     return render_to_response('detalleproyecto.html', {'datos': datos})
 
 
+def error404(request):
+    datos = Obtener_datos_iniciales()
+    return render_to_response('404.html', {'datos': datos})
+
+
 def busqueda(request):
     datos = Obtener_datos_iniciales()
     query_string = ''

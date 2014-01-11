@@ -586,7 +586,10 @@ color:white;
 	width: 100%;
 
 }
-
+.content-img-project img{
+	max-height: 100%;
+	min-width: 95%;
+}
 .vermas{
 	padding: 5px 10px 2px 0px;
 	color:#0C3158;
