@@ -265,7 +265,7 @@ def ordenproyectos_guardar(request):
     """Guarda el orden de los proyectos"""
     print request.POST
     print request.POST['orden']
-    lista = request.POST['orden'][0]
+    lista = request.POST['orden']
     print lista
     contador = 1
     lista = lista.split("&")
