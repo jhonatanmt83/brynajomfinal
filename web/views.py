@@ -264,9 +264,12 @@ def ordenproyectos(request):
 def ordenproyectos_guardar(request):
     """Guarda el orden de los proyectos"""
     lista = request.POST['orden'][0]
+    print lista
     contador = 1
     lista = lista.split("&")
+    print lista
     for elemento in lista:
+        print elemento
         id_elemento = elemento[5:]
         orden = ProyectosIndex.objects.get(pk=int(id_elemento))
         orden.orden = contador
