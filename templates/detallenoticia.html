@@ -41,7 +41,7 @@ window.___gcfg = {lang: 'es'};
 		</div>
 		<div class="span4">
                		{% autoescape off %}
-	                <p class='margin-content'>{{datos.noticia.descripcion}} <br>{{ noticia.fecha|date:"d M Y" }}</p>
+	                <p class='margin-content'>{{datos.noticia.descripcion}} <br>{{ datos.noticia.fecha|date:"d M Y" }}</p>
 	                {% endautoescape %}
 		</div>
 		<div class="span12">
