@@ -254,6 +254,14 @@ def busqueda(request):
 
 
 def ordenproyectos(request):
+    datos = Obtener_datos_iniciales()
+    proyectos = ProyectosIndex.objects.all().order_by("orden")
+    datos['proyectos'] = proyectos
+    return render_to_response('contactenos.html', {'datos': datos}, context_instance=RequestContext(request))
+
+
+
+def ordenproyectos_guardar(request):
     """Guarda el orden de los proyectos"""
     lista = request.POST['ID']
     contador = 1

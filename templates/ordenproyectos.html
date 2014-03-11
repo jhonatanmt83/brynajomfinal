@@ -8,11 +8,12 @@
 {% block extra_head %}{% endblock %}
 {% block contenedor %}
     <!-- ConteedorPrincipal -->
+    {% csrf_token %}
    <div class='container contenedor-principal'>
         <div class="row-fluid">
             <div class="span12">
                 <ul id='categoryorder'>
-                {% for proyecto in proyectos %}
+                {% for proyecto in datos.proyectos %}
                     <li id='ID_{{ proyecto.proyecto.pk }}'>{{ proyecto.proyecto.proyecto }}</li>
                 {% endfor %}
                 </ul>
@@ -29,7 +30,7 @@ function saveDisplayChanges(){
     var order = $("ul#categoryorder").sortable("serialize");
     $('#categorysavemessage').html('Guardando cambios..');
     $.ajax({
-        url: '/modifica/orden/proyectos/',
+        url: '/guarda/orden/proyectos/',
         async: false,
         dataType:'json',
         type:'POST',
