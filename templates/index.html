@@ -87,7 +87,7 @@
                     {% for noticia in datos.noticias %}
                      <div class="thumbnail">
                         <h6 class='text-notice-title text-center'><strong>{{ noticia.titulo }}</strong></h6>
-                        <p class='text-notice'>{{ noticia.descripcion|truncatewords:48 }} <a href="/noticias/detalle/{{ noticia.id }}">Ver más</a></p>
+                        <p class='text-notice'>{{ noticia.descripcion|truncatewords:48 }} {{ noticia.fecha|date:"d M Y" }} <a href="/noticias/detalle/{{ noticia.id }}">Ver más</a></p>
                     </div>
                     {% endfor %}
                 </div>
