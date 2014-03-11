@@ -8,8 +8,8 @@
 {% block contenedor %}
     <!-- ConteedorPrincipal -->
    <div class='container contenedor-principal'>
+        {% for noticia in datos.noticias %}
         <div class="row-fluid">
-            {% for noticia in datos.noticias %}
             <div class="span12">
                 <div class="notice-title">
                     <h4 class='text-center title-details'>{{ noticia.titulo }}</h4>
@@ -26,12 +26,11 @@
                 <div class="span6">
                     <p class="text-justify">{{ noticia.descripcion|truncatewords:150 }} <br>{{ noticia.fecha|date:"d M Y" }}</p>
                     <a href="/noticias/detalle/{{ noticia.id }}">Ver mas</a>
-                    
                 </div>
             </div>
             <hr>
-            {% endfor %}
         </div>
+        {% endfor %}
     </div>
     <!-- End ContenedorPrincipal -->
 {% endblock %}
