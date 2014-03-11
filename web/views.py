@@ -268,7 +268,7 @@ def ordenproyectos_guardar(request):
     lista = lista.split("&")
     for elemento in lista:
         id_elemento = elemento[5:]
-        orden = ProyectosIndex.objects.get(pk=id_elemento)
+        orden = ProyectosIndex.objects.get(pk=int(id_elemento))
         orden.orden = contador
         contador += 1
     new_result = []
