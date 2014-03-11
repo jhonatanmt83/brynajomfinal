@@ -265,10 +265,12 @@ def ordenproyectos_guardar(request):
     """Guarda el orden de los proyectos"""
     lista = request.POST['ID']
     contador = 1
-    for elemento in lista:
-        orden = ProyectosIndex.objects.get(pk=elemento)
-        orden.orden = contador
-        contador += 1
+    print request.POST
+    print lista
+    #for elemento in lista:
+    #    orden = ProyectosIndex.objects.get(pk=elemento)
+    #    orden.orden = contador
+    #    contador += 1
     new_result = []
     datos = {}
     datos['mensaje'] = "Guardado"
