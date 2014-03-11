@@ -315,3 +315,15 @@ class Comentario(models.Model):
 
     def __unicode__(self):
         return str(self.nombres) + " " + str(self.apellidos)
+
+
+class ProyectosIndex(models.Model):
+    class Meta:
+        verbose_name = ('ProyectosIndex')
+        verbose_name_plural = ('ProyectosIndex')
+
+    proyecto = models.ForeignKey(Proyecto)
+    orden = models.IntegerField()
+
+    def __unicode__(self):
+        return self.proyecto.proyecto

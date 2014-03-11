@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
 from web.models import Slider, Cliente, Servicio, Noticia, Proyecto, Informacion, Empresa, TipoEquipo, Puesto, Postulante, Equipo, ImagenProyecto
+from web.models import ProyectosIndex
 # from web.models import Noticia, Obra, ImagenObra, Equipos, Categoria, Cliente, DatosEmpresa, Video, Tipo_de_equipo, Puesto, Trabaja, ImagenPorCategoria
 # from web.forms import TrabajaForm
 from web.forms import PostulanteForm, ComentarioForm
@@ -22,8 +23,9 @@ def home(request):
     datos['servicios'] = servicios
     noticias = Noticia.objects.all().order_by("-fecha")[:4]
     datos['noticias'] = noticias
-    proyectos = Proyecto.objects.all().order_by("-final")[:6]
+    proyectos = ProyectosIndex.objects.all().order_by("orden")
     datos['proyectos'] = proyectos
+
     datos_empresa= Empresa.objects.all()
     if datos_empresa:
         datos_empresa = datos_empresa[0]

@@ -48,12 +48,12 @@
                     <h3 class="text-center cont-titu"> PROYECTOS RECIENTES <img class='img-R' src="/static/img/imgtitle.jpg"> </h3>
                     <div id="accordion">
                         {% for proyecto in datos.proyectos%}
-                        <h3 class='ac-color'>{{ proyecto }}</h3>
+                        <h3 class='ac-color'>{{ proyecto.proyecto }}</h3>
                         <div>
                             <div class="content-img-project text-center">
-                                <img clas='img-rounded'src="{{proyecto.imagen_principal.imagen.url_615x448}}">
+                                <img clas='img-rounded'src="{{proyecto.proyecto.imagen_principal.imagen.url_615x448}}">
                             </div>
-                            <h6 class='text-right'><a class='vermas'href="/proyectos/{{proyecto.pk}}" > ver mas</a></h6>
+                            <h6 class='text-right'><a class='vermas'href="/proyectos/{{proyecto.proyecto.pk}}" > ver mas</a></h6>
                         </div>
                         {% endfor %}
                     </div>

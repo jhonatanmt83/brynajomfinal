@@ -16,6 +16,7 @@ from web.models import TipoEquipo
 from web.models import Equipo
 from web.models import Postulante
 from web.models import Puesto
+from web.models import ProyectosIndex
 
 
 class ImagenProyectoInline(admin.TabularInline):
@@ -55,3 +56,4 @@ admin.site.register(TipoEquipo)
 admin.site.register(Equipo)
 admin.site.register(Postulante, PostulanteAdmin)
 admin.site.register(Puesto)
+admin.site.register(ProyectosIndex)
