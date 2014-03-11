@@ -3,7 +3,7 @@
 from django.shortcuts import render_to_response
 #, get_object_or_404
 from django.template import RequestContext
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from web.models import Slider, Cliente, Servicio, Noticia, Proyecto, Informacion, Empresa, TipoEquipo, Puesto, Postulante, Equipo, ImagenProyecto
 from web.models import ProyectosIndex
 # from web.models import Noticia, Obra, ImagenObra, Equipos, Categoria, Cliente, DatosEmpresa, Video, Tipo_de_equipo, Puesto, Trabaja, ImagenPorCategoria
@@ -12,7 +12,7 @@ from web.forms import PostulanteForm, ComentarioForm
 from web.funciones import Obtener_datos_iniciales, get_query
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-#import json
+import json
 
 
 def home(request):
@@ -251,3 +251,18 @@ def busqueda(request):
     return render_to_response('busqueda.html',
                           { 'query_string': query_string, 'found_entries': found_entries_all, 'datos': datos },
                           context_instance=RequestContext(request))
+
+
+def ordenproyectos(request):
+    """Guarda el orden de los proyectos"""
+    lista = request.POST['ID']
+    contador = 1
+    for elemento in lista:
+        orden = ProyectosIndex.objects.get(pk=elemento)
+        orden.orden = contador
+        contador += 1
+    new_result = []
+    datos = {}
+    datos['mensaje'] = "Guardado"
+    new_result.append(datos)
+    return HttpResponse(json.dumps(new_result))

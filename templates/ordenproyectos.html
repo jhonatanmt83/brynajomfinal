@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block sub_titulo %}Orden de los proyectos{% endblock %}
+{% block js %}
+<script type="text/javascript" src="/static/js/jquery-ui.js"></script>
+{% endblock %}
+{% block css %}
+{% endblock %}
+{% block extra_head %}{% endblock %}
+{% block contenedor %}
+    <!-- ConteedorPrincipal -->
+   <div class='container contenedor-principal'>
+        <div class="row-fluid">
+            <div class="span12">
+                <ul id='categoryorder'>
+                {% for proyecto in proyectos %}
+                    <li id='ID_{{ proyecto.proyecto.pk }}'>{{ proyecto.proyecto.proyecto }}</li>
+                {% endfor %}
+                </ul>
+                <br>
+                <p id='categorysavemessage'></p>
+            </div>
+        </div>
+    </div>
+    <!-- End ContenedorPrincipal -->
+{% endblock %}
+{% block js_end %}
+<script type="text/javascript">
+function saveDisplayChanges(){
+    var order = $("ul#categoryorder").sortable("serialize");
+    $('#categorysavemessage').html('Guardando cambios..');
+    $.ajax({
+        url: '/modifica/orden/proyectos/',
+        async: false,
+        dataType:'json',
+        type:'POST',
+        data: {
+            csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+            "orden":  order
+        },
+        success: function(data) {
+            $.each(data, function(i, val){
+                mensaje = val['mensaje'];
+                $("#categorysavemessage").html(mensaje);
+                $('#categorysavemessage').css("color","green");
+            });
+        }
+    });
+}
+$(document).ready(function(){
+
+  $("ul#categoryorder").sortable({ 
+         opacity: 0.6, 
+         cursor: 'move',  
+         update: function(){
+                $('#categorysavemessage').html('Cambios no guardados');
+                $('#categorysavemessage').css("color","red");
+                },
+         });
+
+});
+</script>
+{% endblock %}
