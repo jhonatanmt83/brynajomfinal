@@ -1,16 +1,17 @@
 #encoding:utf-8
-from web.models import Slider, Informacion
+from web.models import Slider, Informacion, Puesto
 
 
 def Obtener_datos_iniciales():
     resultado = {}
     sliders = Slider.objects.all().filter(activo=True).order_by("-orden")
     informacion = Informacion.objects.all()
+    ofertas = len(Puesto.objects.all().filter(mostrar=True))
     if informacion:
         dato_inf = informacion[0]
     else:
         dato_inf = ''
-    resultado = {'sliders': sliders, 'informacion': dato_inf}
+    resultado = {'sliders': sliders, 'informacion': dato_inf, 'ofertas': ofertas}
     return resultado
 
 

@@ -5,7 +5,7 @@ PROJECT_PATH = path.abspath(
     path.join(path.dirname(path.realpath(__file__)), '..'))
 # Django settings for brynajom project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

@@ -88,6 +88,8 @@ def equipos(request):
     datos = Obtener_datos_iniciales()
     tipo_equipos = TipoEquipo.objects.all()
     numero_de_grupos = len(tipo_equipos) // 3
+    if len(tipo_equipos) % 3 != 0:
+        numero_de_grupos += 1
     inicio = 0
     lista_tipos = []
     if numero_de_grupos != 0:

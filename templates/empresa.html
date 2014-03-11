@@ -98,7 +98,7 @@
                                     <li class="active"><a href="#quienessomos" data-toggle="tab">QUIÉNES SOMOS</a></li>
                                     <li><a href="#gestionempresarial" data-toggle="tab">GESTIÓN EMPRESARIAL</a></li>
                                     <li><a href="#organigrama" data-toggle="tab">ORGANIGRAMA</a></li>
-                                    <li><a href="#planestrategico" data-toggle="tab">PLAN ESTRATEGICO</a></li>
+                                    <li><a href="#planestrategico" data-toggle="tab">PLAN ESTRATÉGICO</a></li>
                                     <li><a href="#politicaseguridad" data-toggle="tab">POLÍTICAS DE SEGURIDAD</a></li>
                                     <li><a href="#politicaambientales" data-toggle="tab">POLÍTICAS AMBIENTALES</a></li>
                                     <li><a href="#certificadps" data-toggle="tab">CERTIFICADOS</a></li>
@@ -106,14 +106,14 @@
          
                             <div class="tab-content text-justify">
                                 <div class="tab-pane active" id="quienessomos">
-                                    <h3 class="text-center titulo3">Quiénes Somos</h3>
+                                    <h3 class="text-center titulo3">QUIÉNES SOMOS</h3>
                                         {% autoescape off %}
                                         {{ datos_empresa.quienes_somos }}
                                         {% endautoescape  %}
                                 </div>
 
                                 <div class="tab-pane" id="gestionempresarial">
-                                    <h3 class="text-center titulo3 ">Organización</h3>
+                                    <h3 class="text-center titulo3 ">GESTIÓN EMPRESARIAL</h3>
                                         {% autoescape off %}
                                         {{ datos_empresa.gestion_empresarial }}
                                         {% endautoescape  %}
@@ -169,7 +169,7 @@
                     <div class="jcarousel">
                         <ul>
                             {% for cliente in datos.clientes %}
-                            <li><a href="{{cliente.url}}"><img src="{{cliente.imagen.url}}"></a></li>
+                            <li><img src="{{cliente.imagen.url}}"></li>
                             {% endfor %}
                         </ul>
                     </div>

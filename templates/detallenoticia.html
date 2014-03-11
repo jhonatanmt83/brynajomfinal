@@ -30,18 +30,28 @@ window.___gcfg = {lang: 'es'};
         <div class="row-fluid">
             <div class="span12">
                 <h4 class='text-center title-details'>{{datos.noticia.titulo}}</h4>
-                {% if datos.noticia.imagen %}
-                <img class='img-rounded'src="{{datos.noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
-                {% endif %}
-                {% autoescape off %}
-                <p class='margin-content'>{{datos.noticia.descripcion}}</p>
-                {% endautoescape %}
-                <g:plusone size="tall"></g:plusone>
-                <div class="fb-like" data-href="http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
-                <a class='twitter-share-button' data-count='vertical' data-lang='es' href='http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}'>Twittear</a>
+		<div class="span7">
+	                {% if datos.noticia.video %}
+			<iframe title="YouTube video player" class="youtube-player" type="text/html" 
+			width="640" height="390" src="{{ datos.noticia.video }}"
+			frameborder="0" allowFullScreen></iframe>
+        	        {% elif datos.noticia.imagen %}
+	                <img class='img-rounded'src="{{datos.noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
+	                {% endif %}
+		</div>
+		<div class="span4">
+               		{% autoescape off %}
+	                <p class='margin-content'>{{datos.noticia.descripcion}}</p>
+	                {% endautoescape %}
+		</div>
+		<div class="span12">
+			<g:plusone size="tall"></g:plusone>
+			<div class="fb-like" data-href="http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></div>
+	            	<a class='twitter-share-button' data-count='vertical' data-lang='es' href='http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}'>Twittear</a>
                 <hr>
-                <div class="fb-comments" data-href="http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}" data-width="850px" data-num-posts="10"></div>
-            </div>
+	                <div class="fb-comments" data-href="http://www.brynajom.com.pe/noticias/detalle/{{datos.noticia.pk}}" data-width="850px" data-num-posts="10"></div>
+        	 </div>
+	    </div>
         </div>
     </div>
 

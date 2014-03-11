@@ -24,7 +24,7 @@ def get_image_noticia_path(instance, filename):
 
 
 def get_image_proyecto_path(instance, filename):
-    return os.path.join('proyecto', str(instance.obra.pk), filename)
+    return os.path.join('proyecto', str(instance.proyecto.pk), filename)
 
 
 def get_image_equipo_path(instance, filename):

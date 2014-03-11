@@ -60,9 +60,9 @@
                         <div class="informacion">
                                 <h5 class='title-contac text-center'>Email</h5>
                                 <p class='text-center descrip-contac'>{{ datos.informacion.email }}</p>
-                                <h5 class='text-center title-contac'>Telefonos</h5>
+                                <h5 class='text-center title-contac'>Teléfonos</h5>
                                 <p class='text-center descrip-contac'>{% autoescape off %}{{ datos.informacion.telefono }}{% endautoescape %}</p>
-                                <h5 class='text-center title-contac'>Direccion</h5>
+                                <h5 class='text-center title-contac'>Dirección</h5>
                                 <p class='text-center descrip-contac'>{% autoescape off %}{{ datos.informacion.direccion }}{% endautoescape %}</p>
                                 <br>
                         
@@ -81,7 +81,7 @@
                     <div class="jcarousel">
                         <ul>
                             {% for cliente in datos.clientes %}
-                            <li><a href="{{cliente.url}}"><img src="{{cliente.imagen.url}}"></a></li>
+                            <li><img src="{{cliente.imagen.url}}"></li>
                             {% endfor %}
                         </ul>
                     </div>

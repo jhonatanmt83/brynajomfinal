@@ -10,19 +10,27 @@
    <div class='container contenedor-principal'>
         <div class="row-fluid">
             <div class="span12">
-                {% for noticia in datos.noticias %}
-                <div class="notice-title">
-                    <h4 class='text-center title-details'>{{ noticia.titulo }}</h4>
-                </div>
-                <div class="description">
-                    {% if noticia.imagen %}
-                    <img class='img-rounded'src="{{noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
-                    {% endif %}
+		<div class="span6">
+                	{% for noticia in datos.noticias %}
+	                <div class="notice-title">
+	                    <h4 class='text-center title-details'>{{ noticia.titulo }}</h4>
+        	        </div>
+                	<div class="description">
+	                    {% if noticia.video %}
+	                    <iframe title="YouTube video player" class="youtube-player" type="text/html" 
+				width="640" height="390" src="{{ noticia.video }}"
+			        frameborder="0" allowFullScreen></iframe>
+	                    {% elif noticia.imagen %}
+        	            <img class='img-rounded'src="{{noticia.imagen.url_500x400}}" alf="noticias de constructoras"><br>
+                	    {% endif %}
+			</div>
+		</div>
+		<div class="span6">
                     <p class="text-justify">{{ noticia.descripcion|truncatewords:150 }}</p>
                     <a href="/noticias/detalle/{{ noticia.id }}">Ver mas</a>
                 </div>
                 <hr>
-                {% endfor %}
+			{% endfor %}
             </div>
         </div>
     </div>

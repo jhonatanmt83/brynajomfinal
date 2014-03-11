@@ -42,7 +42,12 @@ class PostulanteAdmin(admin.ModelAdmin):
 admin.site.register(Slider)
 admin.site.register(Cliente)
 admin.site.register(Servicio)
-admin.site.register(Noticia)
+
+class NoticiaAdmin(admin.ModelAdmin):
+    class Media:
+        js = ("js/code_video.js",)
+
+admin.site.register(Noticia, NoticiaAdmin)
 admin.site.register(Proyecto, ImagenProyectoInlineAdmin)
 admin.site.register(Informacion)
 admin.site.register(Empresa)
